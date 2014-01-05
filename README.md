@@ -8,7 +8,7 @@ In [Seth Lilly](https://github.com/sethlilly)'s words:
 
 > Minimal and responsive with a focus on typography, *Vapor* is a theme that embodies the core concept of [Ghost](http://ghost.org/)&mdash;it fades into the background, bringing the focus to your content.
 
-See *Vapor* in action at [Hipster Ghost](http://hipsterghost.com/)
+See *Vapor* on *Ghost* in action at [Hipster Ghost](http://hipsterghost.com/). See the *Jekyll* port of *Vapor* you're looking at live [here](http://lucafoschini.github.io/jekyll-vapor/).
 
 ## Features
 
