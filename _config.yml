@@ -1,0 +1,17 @@
+name: Vapor Jekyll 
+description: Blogging about stuff
+meta_description: "A port of Ghost Vapor theme to Jekyll"
+
+markdown: redcarpet
+pygments: true
+logo: '/images/vapor_logo.png'
+paginate: 3
+
+author:         
+  name: 'Your Name'
+  website: 'Your Website'
+  bio: 'Your Bio'
+  image: 'path/to/image'
+
+# Details for the RSS feed generator
+url:            'blog url'

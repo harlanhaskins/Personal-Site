@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>{{ site.name }} - {{ site.description }}</title>
+    <meta name="description" content="{{ site.meta_description }}" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+    <!-- This is for syntax highlight -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+
+</head>
+<body class="home-template">
+
+    {{ content }}
+
+    <footer class="site-footer">
+        <div class="inner">
+             <section class="copyright">&copy; 2014 <a href="/">{{ site.name }}</a>. All rights reserved.</section>
+             <section>Vapor theme by <a href="http://sethlilly.com/">Seth Lilly</a></section>
+             <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://ghost.org"><span class="hidden">Ghost</span></a></section>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="/assets/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+    {% include analytics.html %}
+</body>
+</html>
