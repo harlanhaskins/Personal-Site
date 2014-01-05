@@ -1,6 +1,7 @@
 name: Vapor Jekyll 
 description: Blogging about stuff
 meta_description: "A port of Ghost Vapor theme to Jekyll"
+baseurl: '/jekyll-vapor'
 
 markdown: redcarpet
 pygments: true

@@ -20,7 +20,7 @@ The port includes:
 
 ## How to
 
-Run `jekyll -w serve` in the root directory.
+Run `jekyll -w serve --baseurl ''` in the root directory.
 
 ## Thanks
 
