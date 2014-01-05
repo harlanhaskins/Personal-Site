@@ -1,5 +1,11 @@
 # Changelog
 
+* 1.2.1 - 2014-01-04 (Luca Foschini)
+    * Ported to Jekyll
+    * Added About Page
+    * Added Google Analytics
+    * Reorganized files into partials
+    * Added Default Posts
 * 1.2.1 - 2013-12-14
     * Added Font Awesome icons
     * Changed pagination links to use Font Awesome Icons
