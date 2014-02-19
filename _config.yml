@@ -1,18 +1,18 @@
-name: Vapor Jekyll 
-description: Blogging about stuff
-meta_description: "A port of Ghost Vapor theme to Jekyll"
-baseurl: '/jekyll-vapor/'
+name: Harlan Haskins
+description: Software Developer
+meta_description: "18 year old iOS Developer in Rochester, New York"
+baseurl: '/'
 
 markdown: redcarpet
 pygments: true
 logo: '/images/vapor_logo.png'
 paginate: 3
 
-author:         
-  name: 'Your Name'
-  website: 'Your Website'
+author:
+  name: 'Harlan Haskins'
+  website: 'http://harlanhaskins.com'
   bio: 'Your Bio'
-  image: 'path/to/image'
+  image: '/images/profile.png'
 
 # Details for the RSS feed generator
 url:            'blog url'
