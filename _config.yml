@@ -5,14 +5,14 @@ baseurl: ''
 
 markdown: redcarpet
 pygments: true
-logo: '/images/profile.jpg'
+logo: 'https://0.gravatar.com/avatar/9d670e1bacb9419d68fbb5245e4ecef5?s=300'
 paginate: 3
 
 author:
   name: 'Harlan Haskins'
   website: 'http://harlanhaskins.com'
   bio: 'Harlan is an 18 year old developer in Rochester, New York.'
-  image: '/images/profile.jpg'
+  image: 'https://0.gravatar.com/avatar/9d670e1bacb9419d68fbb5245e4ecef5?s=300'
 
 # Details for the RSS feed generator
 url:            '/'
