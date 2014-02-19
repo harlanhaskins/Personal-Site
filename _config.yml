@@ -16,3 +16,6 @@ author:
 
 # Details for the RSS feed generator
 url:            '/'
+
+# Exlcusion
+exclude: fabfile.py, fabfile.pyc, _site.zip
