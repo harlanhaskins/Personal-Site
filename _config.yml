@@ -18,4 +18,4 @@ author:
 url:            '/'
 
 # Exlcusion
-exclude: fabfile.py, fabfile.pyc, _site.zip
+exclude: [fabfile.py, fabfile.pyc, _site.zip]
