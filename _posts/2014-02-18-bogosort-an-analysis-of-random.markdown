@@ -59,4 +59,4 @@ When it's done, it throws the results into a CSV file in the BogoSortResults fol
 
 ![Charts]({{ page.photo-folder }}/chart.png)
 
-You can find all of my code [on my GitHub](http://github.com/harlanhaskins/Bogo-Sort).
+You can find all of my code [on my GitHub](http://github.com/harlanhaskins/Bogo-Sort). Try it for yourself!
