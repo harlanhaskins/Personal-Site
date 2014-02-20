@@ -15,7 +15,7 @@ author:
   image: 'https://0.gravatar.com/avatar/9d670e1bacb9419d68fbb5245e4ecef5?s=300'
 
 # Details for the RSS feed generator
-url:            'http://www.harlanhaskins.com'
+url:            'http://harlanhaskins.com'
 
 # Exlcusion
 exclude: [fabfile.py, fabfile.pyc, _site.zip]

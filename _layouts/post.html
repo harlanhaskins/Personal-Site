@@ -9,6 +9,7 @@ archive: false
     <article class="post">
 
         <header>
+        {% include header.html %}
         {% if page.tags %}
            <div class="post-meta tags">
 	     Posted in {{ page.tags | array_to_sentence_string }}

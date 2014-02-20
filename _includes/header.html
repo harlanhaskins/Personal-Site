@@ -1,0 +1,9 @@
+{% if site.logo %}
+   <a id="blog-logo" href="{{ site.url }}">
+    <img src="{{ site.baseurl }}{{ site.logo }}" alt="Blog Logo" />
+   </a>
+{% endif %}
+<h1 class="blog-title"><a href="{{ site.url }}">{{ site.name }}</a></h1>
+<h2 class="blog-description">{{ site.description }}
+    | <a href='{{site.baseurl}}{{ page.about }}'> About me </a> | <a href="http://github.com/harlanhaskins"> Projects </a> | <a href='{{ site.baseurl }}/Resume.pdf'> Resume </a>
+</h2>
