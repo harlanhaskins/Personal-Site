@@ -1,6 +1,6 @@
 name: Harlan Haskins
 description: Software Developer
-meta_description: "18 year old iOS Developer in Rochester, New York"
+meta_description: "iOS Developer in Rochester, New York"
 baseurl: ''
 
 markdown: redcarpet
@@ -15,7 +15,7 @@ author:
   image: 'https://0.gravatar.com/avatar/9d670e1bacb9419d68fbb5245e4ecef5?s=300'
 
 # Details for the RSS feed generator
-url:            '/'
+url:            'http://www.harlanhaskins.com'
 
 # Exlcusion
 exclude: [fabfile.py, fabfile.pyc, _site.zip]

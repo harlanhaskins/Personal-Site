@@ -12,10 +12,10 @@ archive: false
         {% if page.tags %}
            <div class="post-meta tags">
 	     Posted in {{ page.tags | array_to_sentence_string }}
-	   </div>
-	{% endif %}
-        <h1 class="post-title">{{ page.title }}</h1>
-        <div class="post-meta">
+    	   </div>
+    	{% endif %}
+           <h1 class="post-title">{{ page.title }}</h1>
+           <div class="post-meta">
 	   <time datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time>
 	</div>
         </header>
