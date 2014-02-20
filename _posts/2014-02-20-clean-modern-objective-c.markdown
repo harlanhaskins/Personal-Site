@@ -154,5 +154,47 @@ In that case, you should always separate that delegate with `#pragma`s, like so:
 It has the added benefit of adding to the navigation menu at the top of Xcode.
 ![Nice, neat navigation]({{page.photo-folder}}/navigation.png)
 
-I'll be amending this with future tips soon.
+**Update 1:**
+
+## 7. Use 'Modern Objective-C Syntax'
+
+Objective-C makes heavy use of the `@` operator, which generally denotes
+Objective-C objects. For example, `"string"` is a `char*`, while `@"string"` is
+an NSString. These have been standard in Objective-C for a long time, but only
+recently, in Objective-C 2.0, did Apple add in definitions for NSDictionary,
+NSArray, and NSNumber, all using @directives.
+
+```objective-c
+NSNumber *number = [NSNumber numberWithInteger:7];
+NSNumber *modernNumber = @(7); // or @7
+
+NSArray *array = [NSArray arrayWithObjects:number, modernNumber, nil];
+NSArray *modernArray = @[number, modernNumber];
+
+NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:number, @"number"];
+NSDictionary *modernDictionary = @{@"number" : number};
+```
+
+It's more concise, and still somehow more readable.
+
+## 8. Fruitful functions should be nouns
+
+Fruitful functions (functions that return a value) should be nouns, because the
+function signature should describe what it returns. For example:
+
+```objective-c
+- (void) doSomething;
+// This is good, because it will only do something, so it's like an action.
+
+- (NSArray*) shuffledArray;
+// This is also good, because the signature says 'I'm a shuffled array.'
+
+- (NSArray*) shuffleArray;
+// This is ambiguous, because we don't know if the action will apply to the object itself or if it will just return a shuffled array.
+
+- (NSArray*) getShuffledArray;
+// Needlessly complicated. By sending the message and using the return value, you are implicitly 'getting' the array.
+```
+
+I'll periodically amend this with future tips.
 Happy coding!
