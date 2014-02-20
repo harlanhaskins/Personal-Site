@@ -64,6 +64,9 @@ the behavior.
 -(void) doSomethingWithParameter:(NSString*)parameter;
 
 - (void)doSomethingWithParameter:(NSString *) parameter;
+
+- (void)doSomethingWithParameter:(NSString *)parameter;
+// Apple's recommendation (thanks, zefhous!)
 ```
 Each of these styles has their own advantages and disadvantages, but whichever
 you choose, stick with it throughout the project. And if you're working with a
