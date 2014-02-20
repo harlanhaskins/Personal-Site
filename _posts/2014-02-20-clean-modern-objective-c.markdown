@@ -165,7 +165,7 @@ Objective-C makes heavy use of the `@` operator, which generally denotes
 Objective-C objects. For example, `"string"` is a `char*`, while `@"string"` is
 an NSString. These have been standard in Objective-C for a long time, but only
 recently, in Objective-C 2.0, did Apple add in definitions for NSDictionary,
-NSArray, and NSNumber, all using @directives.
+NSArray, and NSNumber, all using literals specified with @ directives.
 
 ```objective-c
 NSNumber *number = [NSNumber numberWithInteger:7];
