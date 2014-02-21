@@ -1,6 +1,8 @@
 ---
 layout: post
 title: My Time is Worth More Than the Computer's
+date: 2014-02-21
+tags: [efficiency, code, simplicity, maintainability, optimization]
 ---
 
 I live on a [Computer Science-oriented dorm floor](http://csh.rit.edu), and
