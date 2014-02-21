@@ -41,6 +41,3 @@ blocks are cleaner anyway.
 
 The most important thing when coding is your time. When you stop focusing on
 minor inefficiencies, you can go back to solving real problems.
-
-Sorry for the short post, but this is a philosophy by which I've been trying to
-live for a while.
