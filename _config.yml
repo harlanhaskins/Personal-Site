@@ -4,6 +4,10 @@ meta_description: "iOS Developer in Rochester, New York"
 baseurl: ''
 
 markdown: redcarpet
+
+redcarpet:
+      extensions: ["strikethrough"]
+
 pygments: true
 logo: 'https://0.gravatar.com/avatar/9d670e1bacb9419d68fbb5245e4ecef5?s=300'
 paginate: 3

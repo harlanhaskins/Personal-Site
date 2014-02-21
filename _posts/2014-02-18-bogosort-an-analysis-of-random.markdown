@@ -22,25 +22,26 @@ My intrigue began in an intro to Computer Science class, when discussing sorting
 ```
 python3 bogoSort.py
 How many items would you like in your list? 10
-[65, 44, 88, 22, 87, 14, 69, 82, 65, 16]
-[14, 16, 22, 44, 65, 65, 69, 82, 87, 88]
-It took me 0:02:41.514186 to BogoSort this list.
-I shuffled it 6,856,771 times.
+[66, 14, 71, 47, 74, 36, 80, 60, 30, 26]
+[14, 26, 30, 36, 47, 60, 66, 71, 74, 80]
+It took me 0:00:20.794921 to BogoSort this list.
+I shuffled it 1,998,740 times.
 ```
 
 ## C
 
 ```
 ./BogoSort -s -n 10
-[48, 14, 25, 64, 51, 62, 99, 6, 30, 73]
-[6, 14, 25, 30, 48, 51, 62, 64, 73, 99]
-It took me 00:00:1.4526 to BogoSort this list.
-I shuffled it 6,092,336 times.
+[20, 78, 67, 84, 57, 46, 27, 58, 44, 51]
+[20, 27, 44, 46, 51, 57, 58, 67, 78, 84]
+It took me 00:00:0.5199 to BogoSort this list.
+I shuffled it 2,073,394 times.
 ```
 
 The C implementation is significantly faster than Python, but we all knew that.
 
-Python’s BogoSort averages 42,454 shuffles per second. C manages 4,194,090 shuffles per second, which is 98 times faster than Python.
+Python’s BogoSort averages ~~40,000~~ **100,000** shuffles per second. C manages around 4,000,000 shuffles per second, which is ~~98~~ **40** times faster than Python.
+Update: Apparemtly `random` has a shuffle function, which is a lot faster than mine. Numbers have been updated to reflect that.
 
 With this information, I decided to write a **BogoSort Data Aggregation Tool**, which will collect data from repeated BogoSorts over a variety of list-lengths.
 
