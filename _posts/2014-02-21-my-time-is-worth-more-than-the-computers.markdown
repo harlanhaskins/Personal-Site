@@ -31,7 +31,7 @@ I'm going to say something controversial.
 
 There. I said it. But accepting this fact leads to some happy consequences.
 
-Wanna make a web server in Ruby? Go for it. As long as doing so makes you more
+* Wanna make a web server in Ruby? Go for it. As long as doing so makes you more
 comfortable and the code is cleaner, absolutely!
 
 * Wanna traverse a deep tree recursively? Memory is cheap! Go for it!
