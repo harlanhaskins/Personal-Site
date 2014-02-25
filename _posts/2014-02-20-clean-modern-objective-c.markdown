@@ -27,7 +27,7 @@ You throw down some curly braces in the implementation and define it, right?
 
 **No.**
 
-Instead, you should define an *anonymous category* inside your implementation,
+Instead, you should define a *class extension* (or *anonymous category*) inside your implementation,
 like so:
 
 ```objective-c
