@@ -54,7 +54,7 @@ li {
   padding-left: 0.8em;
 }
 pre {
-  font-family: "Consolas", Courier, monospace;
+  font-family: "FantasqueSansMono-Regular", "Consolas", Courier, monospace;
   font-size: 1em;
   line-height: 1.2em;
   padding: 1em;
@@ -67,7 +67,7 @@ pre {
   background-color: rgba(0, 0, 0, 0.05);
 }
 p code {
-  font-family: "Consolas", Courier, monospace;
+  font-family: "FantasqueSansMono-Regular", "Consolas", Courier, monospace;
   font-size: 1.0em;
   line-height: 1.2em;
 }
@@ -367,7 +367,7 @@ a.archive-link {
   border-collapse: collapse !important;
 }
 .gist .gist-file {
-  font-family: "Consolas", Courier, monospace;
+  font-family: "FantasqueSansMono-Regular", "Consolas", Courier, monospace;
   border: 1px solid rgba(0, 0, 0, 0.05) !important;
 }
 .gist .gist-file .gist-meta {
