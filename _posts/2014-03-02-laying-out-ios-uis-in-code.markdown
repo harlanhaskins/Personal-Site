@@ -80,15 +80,15 @@ which makes `git` very happy.
 
 ## Interface Builder is ***slow***
 Everyone who's dealt with Interface Builder understands this one. Just opening a
-xib takes at least 5 seconds and completely halts Xcode until it's loaded.
+`xib` takes at least 5 seconds and completely halts Xcode until it's loaded.
 
 I'd estimate I've spent an hour of my life waiting for Interface Builder to load.
 
-Even worse is when you accidentally click on a xib when you mean to click a class.
+Even worse is when you accidentally click on a `xib` when you mean to click a class.
 Loading the class takes a quarter of a second, but now you must stop what you're
-doing and wait for Xcode to load that xib before you can click the class.
+doing and wait for Xcode to load that `xib` before you can click the class.
 
-It's even worse with storyboards, because that means it has to load the xibs for
+It's even worse with storyboards, because that means it has to load the `xib`s for
 **an entire application's View Controller hierarchy.**
 
 ## Programmatically laying out UIs is not difficult.
@@ -103,10 +103,10 @@ property.
     - You'll need to look for the `topLayoutGguide` and `bottomLayoutGuide`
 properties on UIViewController. They have a property called `length` that will
 tell you (in `viewDidLayoutSubviews`) where the bottom of the navigation bar (or
-top of the tab bar) is. So lay out your views relative to [top | bottom]LayoutGuide.length
+top of the tab bar) is. So lay out your views relative to `[top | bottom]LayoutGuide.length`
 instead of `0.0`.
-* Make heavy use of `siteToFit` on UIViews.
-    - This will resize your UIViews to just enclose their subviews, no matter
+* Make heavy use of `siteToFit` on `UIView`s.
+    - This will resize your `UIView`s to just enclose their subviews, no matter
 what. This is incredibly convenient for positioning views with multiple subviews
 and making sure they're entirely consistent.
 
