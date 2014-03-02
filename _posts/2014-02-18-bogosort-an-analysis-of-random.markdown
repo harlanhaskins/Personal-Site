@@ -3,7 +3,7 @@ layout: post
 title: "BogoSort: An Analysis of Random"
 date: 2014-02-18
 tags: [bogosort, bogo, sorting, c, python, algorithm, efficiency]
-photo-folder: /images/2014-02-18-bogosort-an-analysis-of-random
+photo-folder: /images/2014/02/18/bogosort-an-analysis-of-random
 ---
 
 I’ve become weirdly fascinated with BogoSort, the worst sorting algorithm ever.
