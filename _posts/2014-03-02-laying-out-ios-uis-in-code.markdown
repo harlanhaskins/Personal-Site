@@ -98,6 +98,8 @@ quirks, though.
 
 * The main `view` property of `UIViewController` is not final in `viewDidLoad`.
     - You'll need to adjust frames in the ViewController's  `viewDidLayoutSubviews` method.
+    - **EDIT 1:** If you're strictly following MVC (which you should be) you should do these
+layout calls in `UIView`'s `layoutSubviews` method instead. *Thanks, James Prower*.
 * In iOS 7, the navigation bar no longer adjusts the frame of the main `view`
 property.
     - You'll need to look for the `topLayoutGguide` and `bottomLayoutGuide`
