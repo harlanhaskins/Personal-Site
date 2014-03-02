@@ -105,6 +105,10 @@ properties on UIViewController. They have a property called `length` that will
 tell you (in `viewDidLayoutSubviews`) where the bottom of the navigation bar (or
 top of the tab bar) is. So lay out your views relative to [top | bottom]LayoutGuide.length
 instead of `0.0`.
+* Make heavy use of `siteToFit` on UIViews.
+    - This will resize your UIViews to just enclose their subviews, no matter
+what. This is incredibly convenient for positioning views with multiple subviews
+and making sure they're entirely consistent.
 
 I'm confident that once you make one programmatically-laid-out UI, you won't want
 to touch Interface Builder again.
