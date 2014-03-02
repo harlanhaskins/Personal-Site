@@ -238,6 +238,7 @@ section.preview.archive h2 {
 }
 section.author {
   overflow: hidden;
+  padding-bottom: 2em;
 }
 img.userimage {
   width: 70px;
