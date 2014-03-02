@@ -96,7 +96,7 @@ It'll take a little bit of practice laying out a few UIViews, watching how
 their properties interact, before it becomes second-nature. There are a few small
 quirks, though.
 
-* The main `view` property of `UIViewController` is not final in `viewDidLoad`
+* The main `view` property of `UIViewController` is not final in `viewDidLoad`.
     - You'll need to adjust frames in the ViewController's  `viewDidLayoutSubviews` method.
 * In iOS 7, the navigation bar no longer adjusts the frame of the main `view`
 property.
