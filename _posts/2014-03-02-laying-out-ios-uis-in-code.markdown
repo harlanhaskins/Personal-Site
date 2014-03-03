@@ -68,7 +68,7 @@ that.
 Since Apple moved to the new `xib` format, version control has improved
 dramatically, but it's still very difficult.
 
-Interface Builder documents are now stores as straight XML data, which includes
+Interface Builder documents are now stored as straight XML data, which includes
 unnecessary data like window positioning, for some reason. This has the weird
 side-effect of **altering the file upon viewing** which is some quantum
 insanity that I don't fully understand. This makes version control especially
