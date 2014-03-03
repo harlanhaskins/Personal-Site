@@ -22,7 +22,7 @@ p,
 li,
 dt,
 dd {
-  font-family: "Merriweather", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
+  font-family: "Merriweather", "Open Sans", serif;
 }
 h1,
 .post-meta {
@@ -73,7 +73,7 @@ p code {
 }
 h1 {
   color: #151515;
-  font-family: "Roboto Slab", "Merriweather", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
+  font-family: "Roboto Slab", "Merriweather", "Open Sans", sans-serif;
   font-size: 36px;
   font-weight: 400;
   line-height: 42px;
@@ -179,11 +179,10 @@ section.author p.bio {
 }
 blockquote {
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
-  font-size: 1.6em;
-  font-weight: 300;
+  font-size: 1.1em;
+  font-weight: 100;
   line-height: 1.2em;
   font-style: italic;
-  text-transform: uppercase;
   border-left: 0.5em solid rgba(0, 0, 0, 0.05);
   margin-left: 1em;
   padding-left: 1em;
@@ -225,7 +224,6 @@ h1.blog-title a:hover {
 h2 {
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
   margin-top: 2em;
-  text-transform: uppercase;
   font-weight: 300;
 }
 section.post-content img {
