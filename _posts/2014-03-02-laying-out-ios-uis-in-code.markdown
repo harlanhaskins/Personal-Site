@@ -102,7 +102,7 @@ quirks, though.
 layout calls in `UIView`'s `layoutSubviews` method instead. *Thanks, James Prower*.
 * In iOS 7, the navigation bar no longer adjusts the frame of the main `view`
 property.
-    - You'll need to look for the `topLayoutGguide` and `bottomLayoutGuide`
+    - You'll need to look for the `topLayoutGuide` and `bottomLayoutGuide`
 properties on UIViewController. They have a property called `length` that will
 tell you (in `viewDidLayoutSubviews`) where the bottom of the navigation bar (or
 top of the tab bar) is. So lay out your views relative to `[top | bottom]LayoutGuide.length`
