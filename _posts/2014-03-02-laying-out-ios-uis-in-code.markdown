@@ -3,7 +3,7 @@ layout: post
 title: Laying Out iOS UIs in Code
 date: 2014-03-02
 tags: ['ios', 'ui', 'design', 'frame']
-photo-folder: /images/2014/03/02/laying-out-ios-uis-in-code
+photo-folder: /post\_images/2014/03/02/laying-out-ios-uis-in-code
 ---
 
 For most iOS developers, Interface Builder is an incredibly easy WYSIWYG,
