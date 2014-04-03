@@ -3,7 +3,7 @@ layout: post
 title: Clean, Modern Objective-C
 date: 2014-02-20
 tags: [objective-c, style, code, programming]
-photo-folder: /site\_images/2014/02/20/clean-modern-objective-c
+photo-folder: /post\_images/2014/02/20/clean-modern-objective-c
 ---
 
 Objective-C is far and away my favorite language, and its base syntax lends
