@@ -94,4 +94,4 @@ because it was essentially everything I wanted to do, and I was able to get SSL
 working in about a half hour.
 
 **TL;DR**: Nginx is really good, Jekyll is wonderful and super easy, and SSL is great
-even when unnecessary. Not bad for haveing never set up a server.
+even when unnecessary. Not bad for having never set up a server.
