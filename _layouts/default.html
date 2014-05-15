@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>{{ site.name }} - {{ site.description }}</title>
-    <meta name="description" content="{{ site.meta_description }}" />
+        <title>{{ site.name }} - {{ site.description }}</title>
+        <meta name="description" content="{{ site.meta_description }}" />
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="MobileOptimized" content="320" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/screen.css" />
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/screen.css" />
+        <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/normalize.css" />
 
-    <link rel="icon" type="image/png" href="{{ site.baseurl }}/favicon.ico">
-    <!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" /> -->
-    <!-- This is for syntax highlight -->
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/syntax.css">
-    <link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/fantasque-sans-mono" rel="stylesheet" type="text/css"/>
-    <!-- Customisation
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/main.css" />
-    -->
+        <link rel="icon" type="image/png" href="{{ site.baseurl }}/favicon.ico">
+        <!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" /> -->
+        <!-- This is for syntax highlight -->
+        <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/syntax.css">
+        <link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/fantasque-sans-mono" rel="stylesheet" type="text/css"/>
+        <!-- Customisation
+        <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/main.css" />
+        -->
 
-</head>
-<body class="home-template">
+    </head>
+    <body class="home-template">
 
-    {{ content }}
+        {{ content }}
 
-    <footer class="site-footer">
-        <div class="inner">
-             <section class="copyright">&copy; 2014 <a href="/">{{ site.name }}</a></section>
-             <section>Vapor theme by <a href="http://sethlilly.com/">Seth Lilly</a></section>
-             <section>This site is available on <a href="http://github.com/harlanhaskins/Personal-Site">GitHub</a></section>
-        </div>
-    </footer>
-    {% include analytics.html %}
-</body>
+        <footer class="site-footer">
+            <div class="inner">
+                 <section class="copyright">&copy; 2014 <a href="/">{{ site.name }}</a></section>
+                 <section>Vapor theme by <a href="http://sethlilly.com/">Seth Lilly</a></section>
+                 <section>This site is available on <a href="http://github.com/harlanhaskins/Personal-Site">GitHub</a></section>
+            </div>
+        </footer>
+        {% include analytics.html %}
+    </body>
 </html>
