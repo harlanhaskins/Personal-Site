@@ -57,7 +57,7 @@ dramatically.
 
 Mihir recommended I try out [Jekyll](http://jekyllrb.com), which is what I'm
 currently using. Jekyll is a static site generator, meaning that I really only
-need to worry about my posts--Jekyll will handle the rest.
+need to worry about my posts—Jekyll will handle the rest.
 
 I still write my posts in Markdown (in [vim](http://vim.sexy) too!), but Jekyll
 'compiles' my Markdown-formatted files into HTML using a very simple inheritance
@@ -73,8 +73,8 @@ uses Pygments, which requires just CSS. Seriously. Inspect the code snippet belo
 and see for yourself:
 
 ```python
-def checkItOut():
-    yeah = lookAtThis()
+def check_it_out():
+    yeah = look_at_this()
     for syntax in yeah:
         highlight(syntax)
 ```

@@ -3,7 +3,7 @@ layout: page
 title: About Me
 ---
 
-Hi, I'm Harlan Haskins, and I'm a software developer in Rochester, New York.
+Hi, I'm Harlan Haskins, and I'm a software developer in Cupertino, California.
 
 I primarily write in Objective-C for iOS, but I've been known to dabble in
 Python, C, Haskell, and Java.
@@ -14,4 +14,4 @@ degree in Computer Science. I'm a member of
 
 You can find me on [Twitter](http://twitter.com/harlanhaskins) and on 
 [GitHub](http://github.com/harlanhaskins). My resume is available 
-[here.]({{ site.baseurl }}/Resume.pdf)
+[here.]({{ site.baseurl }}/files/Resume.pdf)

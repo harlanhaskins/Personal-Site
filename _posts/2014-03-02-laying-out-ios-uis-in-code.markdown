@@ -6,6 +6,15 @@ tags: ['ios', 'ui', 'design', 'frame']
 photo-folder: /post\_images/2014/03/02/laying-out-ios-uis-in-code
 ---
 
+**UPDATE:** I've spent a lot of time reconsidering this post and learning
+new things about Auto Layout and Interface builder. **I no longer endorse
+this blog post.** Auto Layout and Interface Builder are really incredible
+technologies and have greatly improved in recent years. My reluctance
+primarily stemmed from lack of familiarity and I really regret not fully
+exploring the technologies sooner. I'm leaving this post up, though.
+
+---
+
 For most iOS developers, Interface Builder is an incredibly easy WYSIWYG,
 drag-and-drop editor to lay out UIs. For many, however, Auto Layout (or the
 springs and struts of yore) only provide a cursory amount of control over
