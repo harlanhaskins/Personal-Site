@@ -112,6 +112,10 @@ article.preview p.readmore {
 #blog-logo img {
   border-radius: 50%;
   max-width: 100px;
+  box-shadow: 0px 0px 30px #ccc;
+  -moz-box-shadow: 0px 0px 30px #ccc;
+  -webkit-box-shadow: 0px 0px 30px #ccc;
+  margin-bottom: 15px;
 }
 h1.blog-title,
 h2.blog-description {
