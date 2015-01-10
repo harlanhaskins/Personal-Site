@@ -1,6 +1,6 @@
-name: Harlan Haskins
-description: Software Developer
-meta_description: 'Software Developer in Cupertino, California'
+name: 'Harlan Haskins'
+description: 'Software Developer'
+meta_description: 'Software Developer in Greenville, South Carolina'
 baseurl: ''
 
 markdown: redcarpet
@@ -14,12 +14,12 @@ paginate: 3
 
 author:
   name: 'Harlan Haskins'
-  website: 'http://harlanhaskins.com'
-  bio: 'Harlan is a software developer in Sunnyvale, California.'
+  website: 'https://harlanhaskins.com'
+  bio: 'Harlan is a software developer in Greenville, South Carolina.'
   image: 'https://0.gravatar.com/avatar/9d670e1bacb9419d68fbb5245e4ecef5?s=300'
 
 # Details for the RSS feed generator
-url: 'http://harlanhaskins.com'
+url: 'https://harlanhaskins.com'
 
 # Exlcusion
 exclude: [fabfile.py, fabfile.pyc, _site.zip]
