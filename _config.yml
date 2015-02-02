@@ -1,6 +1,6 @@
 name: 'Harlan Haskins'
 description: 'Software Developer'
-meta_description: 'Software Developer in Greenville, South Carolina'
+meta_description: 'Software Developer in Rochester, New York'
 baseurl: ''
 
 markdown: redcarpet
@@ -15,7 +15,7 @@ paginate: 3
 author:
   name: 'Harlan Haskins'
   website: 'https://harlanhaskins.com'
-  bio: 'Harlan is a software developer in Greenville, South Carolina.'
+  bio: 'Harlan is a software developer in Rochester, New York.'
   image: 'https://0.gravatar.com/avatar/9d670e1bacb9419d68fbb5245e4ecef5?s=300'
 
 # Details for the RSS feed generator
