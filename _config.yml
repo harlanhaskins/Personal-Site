@@ -17,6 +17,7 @@ author:
   website: 'https://harlanhaskins.com'
   bio: 'Harlan is a software developer in Rochester, New York.'
   image: 'https://0.gravatar.com/avatar/9d670e1bacb9419d68fbb5245e4ecef5?s=300'
+  location: 'Rochester, New York'
 
 # Details for the RSS feed generator
 url: 'https://harlanhaskins.com'
