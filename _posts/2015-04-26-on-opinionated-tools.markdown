@@ -144,6 +144,11 @@ Let's consider what we didn't have to do:
     encompasses the possibility of not having a value. As such, handling
     `None` is always explicit, and completely ignorable unless necessary.
 
+    Apple has also shown support for this kind of type-level safety.
+    Swift's type system is a dramatic improvement over Objective-C, and
+    it enables you to write incredibly expressive and safe code, much
+    easier.
+
 * Check the type of the inputs.
     This is a gimme: Haskell is a (very) strictly typed language, and
     typeclasses like `Num` and `Integral` allow us to write incredibly
@@ -158,10 +163,10 @@ Let's consider what we didn't have to do:
 
 ### 'Garbage in, garbage out.'
 
-Python handles this by accepting all sorts of garbage -- and letting
-the requisite garbage flow in response.
+Unopinionaed languages handle this by accepting all sorts of garbage --
+and letting the requisite garbage flow in response.
 
-Haskell stops the garbage from getting in.
+Opinionated languages stop the garbage from getting in.
 
 ## Databases
 
