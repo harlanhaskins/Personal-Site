@@ -33,8 +33,8 @@ really useful when prototyping or writing simple, one-off programs.
 This convenience breaks down when running in production.
 
 Let's look at some examples. Say, for example, you're writing an integer
-arithmetic library. Dynamic languages like Python mean you can get started
-really quickly!
+arithmetic library. A contrived example, I'm aware, but bear with me.
+Dynamic languages like Python mean you can get started really quickly!
 
 ```python
 def add(first, second):
