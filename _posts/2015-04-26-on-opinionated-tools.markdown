@@ -1,7 +1,7 @@
 ---
 layout: post
 title: On Opinionated Tools
-date: 2014-04-26
+date: 2015-04-26
 tags: ["Haskell", "Python", "Safety", "Lazy", "Programming"]
 ---
 
