@@ -1,7 +1,8 @@
 ---
 layout: post
 title: On Opinionated Tools
-tags: ["Programming"]
+date: 2014-04-26
+tags: ["Haskell", "Python", "Safety", "Lazy", "Programming"]
 ---
 
 I've recently begun a love affair with Haskell that's caused me to rethink
