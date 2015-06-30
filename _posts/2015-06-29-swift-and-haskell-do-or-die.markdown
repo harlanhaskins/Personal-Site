@@ -6,6 +6,8 @@ tags: ["swift", "haskell", "functional"]
 
 **Note:** This post requires cursory knowledge of Monads and, ideally, a teensy bit of Haskell. You can probably get away with reading Javier Soto's piece [*Functor and Monad in Swift*](http://www.javiersoto.me/post/106875422394).
 
+***
+
 Swift 2 introduced a robust error-handling system that abstracts away old Cocoa `NSError **` handling.
 
 In Swift 1.2, using something like `NSJSONSerialization` required a very awkward, pass-by-reference error model, that feels very foreign to Swift.
@@ -124,7 +126,7 @@ let jsonData = NSData(contentsOfFile: "someFile.json")
 parseJSONData(jsonData).bind(jsonAsDictionary)
 ```
 
-Well, there's even more code, since we still have to live in the old world and now transform it into our new world. But we've
+Well, there's even more code, since we still have to live in the old world and now transform it into our new world. But we've at least created a consistent abstraction that allows for native, descriptive errors.
 
 The `throws` example from earlier is very similar behavior to `do` notation in Haskell. `do` notation wraps one or many monadic operations in a way that feels almost imperative.
 
