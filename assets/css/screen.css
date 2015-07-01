@@ -84,7 +84,7 @@ article.preview,
 a.archive-link,
 .article-nav {
   margin: 20px auto;
-  max-width: 600px;
+  max-width: 768px;
   width: 90%;
 }
 #site-head img {
@@ -256,7 +256,7 @@ footer section {
   font-weight: 300;
   font-size: 18px;
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 768px;
   text-transform: uppercase;
   width: 90%;
 }
@@ -321,7 +321,7 @@ a.archive-link {
 .pagination {
   position: relative;
   width: 90%;
-  max-width: 600px;
+  max-width: 768px;
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
   text-transform: uppercase;
   font-size: 20px;
