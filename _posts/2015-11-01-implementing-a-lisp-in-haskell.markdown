@@ -15,7 +15,7 @@ class at RIT, we spent time implementing common algorithms in a LISP-y language
 called Impcore, made by [Norman Ramsey](http://www.cs.tufts.edu/~nr/), as a
 teaching tool.
 
-I really appreciate LISP, and had a lot of fun looking through the Impccore
+I really appreciate LISP, and had a lot of fun looking through the Impcore
 source and textbooks learning the syntax and operational semantics of Impcore.
 
 So I decided to implement my own, called Letter, in a language that's very
