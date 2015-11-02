@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: "Implementing a LISP-y Language in Haskell: Part 1"
 tags: ['haskell', 'lisp', 'programming']
 date: 2015-11-02
