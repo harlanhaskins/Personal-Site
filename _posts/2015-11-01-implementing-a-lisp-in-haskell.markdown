@@ -349,7 +349,6 @@ builtinFuns = M.fromList
               , (">=", binaryFun (boolify (>=)))
               , ("<=", binaryFun (boolify (<=)))
               , ("/=", binaryFun (boolify (/=)))
-              , ("not", UserFun ["x"] (FunCall "if" [Var "x", NExp 0, NExp 1]))
               , ("mod", binaryFun mod)
               , ("if", BuiltinFun 3 ifDef)
               , ("print", BuiltinFun 1 printDef)

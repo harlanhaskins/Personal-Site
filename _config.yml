@@ -20,6 +20,9 @@ author:
   image: 'https://0.gravatar.com/avatar/9d670e1bacb9419d68fbb5245e4ecef5?s=300'
   location: 'Rochester, New York'
 
+page:
+    disqus: true
+
 # Details for the RSS feed generator
 url: 'https://harlanhaskins.com'
 
