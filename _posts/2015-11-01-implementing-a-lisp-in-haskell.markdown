@@ -11,12 +11,13 @@ expressions that recursively reduce to a value.
 
 In my
 [Programming Language Concepts](https://www.cs.rit.edu/~scj/plc_20151.html)
-class at RIT, we spent time implementing common algorithms in a LISP-y language
-called Impcore, made by [Norman Ramsey](http://www.cs.tufts.edu/~nr/), as a
-teaching tool.
+class at RIT, we spent time implementing common algorithms in a LISP-esque
+language called Impcore, made by [Norman Ramsey](http://www.cs.tufts.edu/~nr/),
+as a teaching tool. Impcore, though its syntax is derived from LISP, has very
+different semantics.
 
-I really appreciate LISP, and had a lot of fun looking through the Impcore
-source and textbooks learning the syntax and operational semantics of Impcore.
+I had a lot of fun looking through the Impcore source and textbooks learning
+the syntax and operational semantics of Impcore.
 
 So I decided to implement my own, called Letter, in a language that's very
 well suited to recursive data structures: Haskell.
