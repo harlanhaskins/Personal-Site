@@ -49,7 +49,6 @@ exp        ::= (<exp-body>)             ; A parenthesized expression
              | <num>
              | <id>
 exp-body   ::= let <id> <exp>           ; A 'let' expression
-             | do <exp>+                ; A 'do' expression
              | <id> <exp>*              ; A function call
 fun-def    ::= (def <id> (<id>*) <exp>)
 num        ::= 0-9
@@ -101,7 +100,6 @@ easily represent it using a nested Haskell data structure.
 
 ```haskell
 data Exp = NExp Int
-         | Do [Exp]
          | Var String
          | Let String Exp
          | FunCall String [Exp]
@@ -128,15 +126,18 @@ can be used inside user-defined functions. To achieve this, I made a
 `FunDef` type that has two possible cases.
 
 ```
-data FunDef = UserFun [String] Exp
-            | BuiltinFun Int (Env -> [Exp] -> IO Exp)
+data FunDef = UserFun [String]         -- Formal Parameter Names
+              Exp                      -- Wrapped expression
+            | BuiltinFun (Maybe Int)   -- Optional function arity
+              (Env -> [Exp] -> IO Exp) -- Wrapped function
 ```
 
 First, a `UserFun`. A `UserFun` is exactly what we just described: A list of
 formal parameters (`[String]`), and a single expression that it evaluates to.
 
 Then, a `BuiltinFun`, which contains:
-* an arity so we know how many arguments are required
+* an arity so we know how many arguments are required (or nothing if there's
+no limit)
 * a Haskell function that takes in an `Env` (more on that later) and a list of
 expressions for arguments, and yields an expression in the IO Monad (ignore
 that, for now).
@@ -211,19 +212,26 @@ wrap a list of expressions. To emulate this 'new scope', we just insert the
 new binding into the environment and pass it along through the rest of the `do`
 statement whenever we hit a 'let' statement.
 
-Similarly, we have two possible cases for 'do' statements. Either you have one
+Similarly, we have two possible cases for `do` statements. Either you have one
 expression inside or multiple expressions inside. If there's just one
 expression, then we evaluate that expression with the current environment, and
 the `do` is over. If there's multiple, then we'll evaluate the statement and
 throw away its value, then recurse and evaluate the rest of the expressions
 inside the `do`.
 
+We can implement `do` as a `BuiltinFun` with no arity (it'll accept an infinite
+number of arguments).
+
 ```haskell
-reduce (Env fs gs) (Do ((Let id e):exps))  = reduce (Env fs (M.insert id e gs)) (Do exps)
-reduce env (Do [exp])                      = reduce env exp
-reduce env (Do (exp:exps))                 = do
-    _ <- reduce env exp
-    reduce env (Do exps)
+doFun = BuiltinFun Nothing doDef
+
+doDef :: Env -> [Exp] -> IO Exp
+doDef env []                      = return $ NExp 0
+doDef env [e]                     = reduce env e
+doDef (Env fs gs) ((Let id e):es) = doDef (Env fs (M.insert id e gs)) es
+doDef env (e:es)                  = do
+    _ <- reduce env e
+    doDef env es
 ```
 
 #### Scoping
