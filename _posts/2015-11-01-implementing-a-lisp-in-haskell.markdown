@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Implementing a LISP-y Language in Haskell: Part 1"
+title: "Implementing a Simple Language in Haskell: Part 1"
 tags: ['haskell', 'lisp', 'programming']
 date: 2015-11-02
 ---
@@ -24,7 +24,7 @@ well suited to recursive data structures: Haskell.
 
 For reference, here is a simple factorial implementation in Letter:
 
-```lisp
+```scheme
 (def fact(n)
   (if (= n 0)
     1
