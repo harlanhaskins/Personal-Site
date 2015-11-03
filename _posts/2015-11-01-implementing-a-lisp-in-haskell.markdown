@@ -200,6 +200,7 @@ The `reduce` function contains all of the heavy lifting of Letter.
 
 First, like before, define the base case. `NExp`s pass through the function
 unchanged.
+
 ```haskell
 reduce env n@(NExp _)                       = return n
 ```
