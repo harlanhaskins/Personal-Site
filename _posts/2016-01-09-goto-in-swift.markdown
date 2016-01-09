@@ -1,7 +1,7 @@
 ---
 layout: post
 title: goto in Swift
-date: 2016-01-10
+date: 2016-01-09
 tags: [swift, programming, goto, fail]
 ---
 
