@@ -191,7 +191,7 @@ blockquote p {
   font-weight: 300;
   line-height: 1.2em;
   font-style: italic;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 .post-meta {
   color: #95a5a6;

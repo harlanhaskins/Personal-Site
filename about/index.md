@@ -3,9 +3,9 @@ layout: page
 title: About Me
 ---
 
-Hi, I'm Harlan Haskins, and I'm a software developer in Rochester, New York.
+Hi, I'm Harlan Haskins, and I'm a software Engineer in Cupertino, CA.
 
-I primarily write in Swift, Objective-C, Haskell, Python, and C.
+I primarily write in Swift, Haskell, Python, Objective-C, and C.
 
 I attend [RIT](http://www.rit.edu), where I'm pursuing a Bachelor's 
 degree in Computer Science. I'm a member of

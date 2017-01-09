@@ -1,6 +1,6 @@
 name: 'Harlan Haskins'
-description: 'Software Developer'
-meta_description: 'Software Developer in Cupertino, California'
+description: 'Software Engineer'
+meta_description: 'Software Engineer in Rochester, New York'
 baseurl: ''
 
 timezone: America/New_York
@@ -10,7 +10,7 @@ markdown: redcarpet
 redcarpet:
   extensions: ["footnotes", "strikethrough", "tables"]
 
-highlighter: pygments
+highlighter: rouge
 logo: 'https://0.gravatar.com/avatar/9d670e1bacb9419d68fbb5245e4ecef5?s=300'
 paginate: 3
 gems: ['jekyll-paginate']
@@ -18,9 +18,9 @@ gems: ['jekyll-paginate']
 author:
   name: 'Harlan Haskins'
   website: 'https://harlanhaskins.com'
-  bio: 'Harlan is a software developer in Cupertino, California.'
+  bio: 'Harlan is a software engineer in Rochester, New York.'
   image: 'https://0.gravatar.com/avatar/9d670e1bacb9419d68fbb5245e4ecef5?s=300'
-  location: 'Cupertino, California'
+  location: 'Rochester, New York'
 
 page:
     disqus: true
