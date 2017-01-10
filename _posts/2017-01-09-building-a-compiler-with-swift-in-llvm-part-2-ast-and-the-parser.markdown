@@ -43,7 +43,26 @@ struct Prototype {
 This means we can use this prototype as both the prototype of an `extern`
 declaration and inside a function definition. Speaking of...
 
-### Definitions
+### Externs and Definitions
+
+Kaleidoscope allows the programmer to specify existing named functions in the
+C standard library without having to implement those functions.
+
+For example, if I want to use the `math.h` function:
+
+```
+double sqrt(double n);
+```
+
+then I can declare its existence in Kaleidoscope as:
+
+```
+extern sqrt(n)
+```
+
+Because Kaleidoscope only has Double-typed numbers, we can get away with not
+specifying types in the declaration. All parameters are implicitly `double`, and
+all functions return `double`. 
 
 A Kaleidoscope function definition has two parts: a prototype and an expression.
 The expression will have variables that reference the parameters given to the
