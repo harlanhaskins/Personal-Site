@@ -102,7 +102,6 @@ The names on the left of the `::=` are called "terms", and the values on
 the right are the possible values that may represent these terms.
 
 In this form, each term can be substituted with the value to the right.
-You may notice that
 
 We'll be building a [recursive descent parser](https://en.wikipedia.org/wiki/Recursive_descent_parser) in Swift that can turn tokens emitted by [our Lexer](https://harlanhaskins.com/2017/01/08/building-a-compiler-with-swift-in-llvm-part-1-introduction-and-the-lexer.html)
 into the AST we declared earlier.
