@@ -183,9 +183,12 @@ func parseIdentifier() throws -> String {
 
 Once we have this, we can make use of it inside the parsers for other terms.
 
-Next, we'll write the parser for `Prototype`s. We'll want to parse a single
-identifier, then a left paren, then a comma-separated list of identifiers, and
-finally a right paren.
+Next, we'll write the parser for `Prototype`s. We'll want to parse:
+
+- a single identifier, then
+- a left paren, then
+- a comma-separated list of identifiers, and finally
+- a right paren.
 
 But wait — we've seen this pattern before in the grammar. Left paren,
 comma-separated list, then right paren... that's very similar to the grammar for
