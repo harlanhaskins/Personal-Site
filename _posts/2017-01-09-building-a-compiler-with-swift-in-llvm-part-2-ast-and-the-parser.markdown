@@ -201,7 +201,7 @@ features to reuse the logic: generics and higher-order functions.
 Let's make a function:
 
 ```swift
-func parseCommaSeparated<TermType>(_ parseFn: () throws -> TermType) throws -> [TermType]`
+func parseCommaSeparated<TermType>(_ parseFn: () throws -> TermType) throws -> [TermType]
 ```
 
 This function is generic, which means it will collect whatever type the
