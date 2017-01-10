@@ -11,6 +11,13 @@ we built a lexer in Swift that can tokenize the
 a parser that can turn code from this language into an Abstract Syntax Tree,
 or AST.
 
+> This is the second part in a 4-part series where we'll build a compiler for the
+> basic form of the [Kaleidoscope sample language](http://llvm.org/docs/tutorial/index.html).
+>
+> Quick Links
+>
+> - [Part 1: Introduction and the Lexer](https://harlanhaskins.com/2017/01/08/building-a-compiler-with-swift-in-llvm-part-1-introduction-and-the-lexer.html)
+
 ## AST Structure
 
 An AST represents the structure of your program as it was written in the source
@@ -62,7 +69,7 @@ extern sqrt(n)
 
 Because Kaleidoscope only has Double-typed numbers, we can get away with not
 specifying types in the declaration. All parameters are implicitly `double`, and
-all functions return `double`. 
+all functions return `double`.
 
 A Kaleidoscope function definition has two parts: a prototype and an expression.
 The expression will have variables that reference the parameters given to the

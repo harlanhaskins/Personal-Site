@@ -16,6 +16,10 @@ to satisfy when designing a new language, as the standard is usually malleable.
 
 > This is the first part in a 4-part series where we'll build a compiler for the
 > basic form of the [Kaleidoscope sample language](http://llvm.org/docs/tutorial/index.html).
+>
+> Quick Links
+>
+> - [Part 2: AST and the Parser](https://harlanhaskins.com/2017/01/09/building-a-compiler-with-swift-in-llvm-part-2-ast-and-the-parser.html)
 
 
 ## Introduction to LLVM
