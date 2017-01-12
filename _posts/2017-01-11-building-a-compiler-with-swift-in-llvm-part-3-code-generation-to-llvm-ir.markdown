@@ -8,9 +8,7 @@ tags: [swift, llvm, compilers, parsers]
 If you've gotten this far in the tutorial, then you'll have built a Lexer and
 Parser for the
 [Kaleidoscope](http://llvm.org/docs/tutorial/index.html) programming language.
-If you haven't read those, I'd strongly recommend reading [Part 1](https://harlanhaskins.com/2017/01/08/building-a-compiler-with-swift-in-llvm-part-1-introduction-and-the-lexer.html) and [Part 2](https://harlanhaskins.com/2017/01/09/building-a-compiler-with-swift-in-llvm-part-2-ast-and-the-parser.html) first.
-
-This time we'll be turning this parser into a proper compiler by turning the
+If you haven't read those, I'd strongly recommend reading [Part 1](https://harlanhaskins.com/2017/01/08/building-a-compiler-with-swift-in-llvm-part-1-introduction-and-the-lexer.html) and [Part 2](https://harlanhaskins.com/2017/01/09/building-a-compiler-with-swift-in-llvm-part-2-ast-and-the-parser.html) first. This time we'll be turning this parser into a proper compiler by turning the
 parsed code into
 [LLVM Intermediate Representation (LLVM IR)](http://llvm.org/docs/LangRef.html#introduction).
 
