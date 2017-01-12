@@ -20,6 +20,7 @@ to satisfy when designing a new language, as the standard is usually malleable.
 > Quick Links
 >
 > - [Part 2: AST and the Parser](https://harlanhaskins.com/2017/01/09/building-a-compiler-with-swift-in-llvm-part-2-ast-and-the-parser.html)
+> - [Part 3: Code Generation to LLVM IR](https://harlanhaskins.com/2017/01/11/building-a-compiler-with-swift-in-llvm-part-3-code-generation-to-llvm-ir.html)
 
 
 ## Introduction to LLVM

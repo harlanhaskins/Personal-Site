@@ -17,6 +17,7 @@ or AST.
 > Quick Links
 >
 > - [Part 1: Introduction and the Lexer](https://harlanhaskins.com/2017/01/08/building-a-compiler-with-swift-in-llvm-part-1-introduction-and-the-lexer.html)
+> - [Part 3: Code Generation to LLVM IR](https://harlanhaskins.com/2017/01/11/building-a-compiler-with-swift-in-llvm-part-3-code-generation-to-llvm-ir.html)
 
 ## AST Structure
 
