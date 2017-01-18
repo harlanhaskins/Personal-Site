@@ -558,7 +558,6 @@ do {
 It works! We can see the IR that's emitted for any valid Kaleidoscope program
 we write.
 
-
 In Part 4, we're going to built a Just-In-Time compiler using LLVM's JIT that
 allows you to execute Kaleidoscope programs from a REPL.
 

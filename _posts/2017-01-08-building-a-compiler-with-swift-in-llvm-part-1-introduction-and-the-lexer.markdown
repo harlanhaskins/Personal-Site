@@ -61,7 +61,7 @@ binary operator math.
 We can define functions like this:
 
 ```
-def foo(n) (n * 100.34)
+def foo(n) (n * 100.34);
 ```
 
 And we can scale up to more complex expressions and definitions like so:
@@ -69,7 +69,7 @@ And we can scale up to more complex expressions and definitions like so:
 ```
 extern sqrt(n)
 
-def foo(n) (n * sqrt(n * 200) + 57 * n % 2)
+def foo(n) (n * sqrt(n * 200) + 57 * n % 2);
 ```
 
 ## The Lexer
@@ -84,7 +84,7 @@ should look something like this:
 
 ```swift
 enum Token {
-    case leftParen, rightParen, def, extern, comma
+    case leftParen, rightParen, def, extern, comma, .semicolon
     case identifier(String)
     case number(Double)
     case `operator`(BinaryOperator)
@@ -152,9 +152,9 @@ func lex() -> [Token] {
 ## Let's give it a shot!
 
 ```swift
-let toks = Lexer(input: "def foo(n) (n * 100.35)").lex()
+let toks = Lexer(input: "def foo(n) (n * 100.35);").lex()
 print(toks)
-// [Token.def, Token.identifier("foo"), Token.leftParen, Token.identifier("n"), Token.rightParen, Token.leftParen, Token.identifier("n"), Token.operator(BinaryOperator.times), Token.number(100.34), Token.rightParen]
+// [Token.def, Token.identifier("foo"), Token.leftParen, Token.identifier("n"), Token.rightParen, Token.leftParen, Token.identifier("n"), Token.operator(BinaryOperator.times), Token.number(100.34), Token.rightParen, Token.semicolon]
 ```
 
 It works!

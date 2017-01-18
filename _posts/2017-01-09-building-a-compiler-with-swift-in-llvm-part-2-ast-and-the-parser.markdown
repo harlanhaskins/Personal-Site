@@ -34,7 +34,7 @@ the function's parameters.
 For example, in the function definition:
 
 ```
-def foo(a, b, c) 0
+def foo(a, b, c) 0;
 ```
 
 the prototype will have the name `"foo"`, and the parameters `["a", "b", "c"]`.
@@ -65,7 +65,7 @@ double sqrt(double n);
 then I can declare its existence in Kaleidoscope as:
 
 ```
-extern sqrt(n)
+extern sqrt(n);
 ```
 
 Because Kaleidoscope only has Double-typed numbers, we can get away with not
@@ -114,8 +114,8 @@ Form](https://en.wikipedia.org/wiki/Backus–Naur_form):
 
 ```
 <prototype>  ::= <identifier> "(" <params> ")"
-<definition> ::= "def" <prototype> <expr>
-<extern>     ::= "extern" <prototype>
+<definition> ::= "def" <prototype> <expr> ";"
+<extern>     ::= "extern" <prototype> ";"
 <operator>   ::= "+" | "-" | "*" | "/" | "%"
 <expr>       ::= <binary> | <call> | <identifier> | <number>
                | "(" <expr> ")"
@@ -266,7 +266,9 @@ And now the way we parse `extern` definitions is simple, just parse the
 ```swift
 func parseExtern() throws -> Prototype {
     try parse(.extern)
-    return try parsePrototype()
+    let proto = try parsePrototype()
+    try parse(.semicolon)
+    return proto
 }
 ```
 
@@ -309,7 +311,9 @@ func parseDefinition() throws -> Definition {
     try parse(.def)
     let prototype = try parsePrototype()
     let expr = try parseExpr()
-    return Definition(prototype: prototype, expr: expr)
+    let def = Definition(prototype: prototype, expr: expr)
+    try parse(.semicolon)
+    return def
 }
 ```
 
@@ -348,7 +352,7 @@ func parseTopLevel() throws -> TopLevel {
 ## Let's Give It a Shot!
 
 ```swift
-let toks = Lexer(input: "extern sqrt(n)\ndef foo(n) (n * sqrt(n * 200) + 57 * n % 2)").lex()
+let toks = Lexer(input: "extern sqrt(n); def foo(n) (n * sqrt(n * 200) + 57 * n % 2);").lex()
 let topLevel = try Parser(tokens: toks).parseTopLevel()
 print(topLevel)
 // TopLevel(externs: [Prototype(name: "sqrt", params: ["n"])], definitions: [Definition(prototype: Prototype(name: "foo", params: ["n"]), expr: Expr.binary(Expr.variable("n"), BinaryOperator.times, Expr.binary(Expr.call("sqrt", [Expr.binary(Expr.variable("n"), BinaryOperator.times, Expr.number(200.0))]), BinaryOperator.plus, Expr.binary(Expr.number(57.0), BinaryOperator.times, Expr.binary(Expr.variable("n"), BinaryOperator.mod, Expr.number(2.0))))))])
