@@ -511,7 +511,20 @@ case let .binary(lhs, op, rhs):
         return builder.buildRem(lhsVal, rhsVal)
 ```
 
-Now the last binary operator: equals.
+Now the last binary operator: equals. We'll make a floating-point comparison
+(`fcmp`) instruction, which will return an `i1` (1-bit integer). Because values
+in Kaleidoscope need to be `double`s, then we have to build an `IntToFP`
+instruction to convert the value to `double`.
+
+```swift
+    case .equals:
+        let comparison = builder.buildFCmp(lhsVal, rhsVal,
+                                           .orderedEqual)
+        return builder.buildIntToFP(comparison,
+                                    type: FloatType.double,
+                                    signed: false)
+    }
+```
 
 And we're done with `emitExpr()`!
 
