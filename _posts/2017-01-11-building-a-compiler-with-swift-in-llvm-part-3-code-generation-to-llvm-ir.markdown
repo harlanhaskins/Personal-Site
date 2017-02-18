@@ -44,6 +44,7 @@ indirect enum Expr {
     case variable(String)
     case binary(Expr, BinaryOperator, Expr)
     case call(String, [Expr])
+    case ifelse(Expr, Expr, Expr)
 }
 ```
 
@@ -263,12 +264,12 @@ Let's make another class to encapsulate all the code generation. Let's name it
 class IRGenerator {
     let module: Module
     let builder: IRBuilder
-    let topLevel: TopLevel
+    let file: File
 
-    init(topLevel: TopLevel) {
+    init(file: File) {
         self.module = Module(name: "main")
         self.builder = IRBuilder(module: module)
-        self.topLevel = topLevel
+        self.file = file
     }
 }
 ```
@@ -352,36 +353,25 @@ enum IRError: Error {
 ```
 
 We also need a way to look up a prototype from the list of prototypes in the
-`TopLevel` declaration. Add the following to the declaration of `TopLevel`:
+`File` declaration. Add the following to the declaration of `File`:
 
 ```swift
 private let prototypeMap: [String: Prototype]
-
-init(externs: [Prototype], definitions: [Definition]) {
-    self.externs = externs
-    self.definitions = definitions
-    var map = [String: Prototype]()
-    let allPrototypes = externs + definitions.map { $0.prototype }
-    for prototype in allPrototypes {
-        map[prototype.name] = prototype
-    }
-    self.prototypeMap = map
-}
 
 func prototype(named: String) -> Prototype? {
     return prototypeMap[name]
 }
 ```
 
-This means that `TopLevel` will now keep track of a mapping of names to their
-corresponding prototypes. We can ask the `TopLevel` declaration for a prototype
+This means that `File` will now keep track of a mapping of names to their
+corresponding prototypes. We can ask the `File` declaration for a prototype
 by name and then throw an error if the function didn't exist.
 
 ```swift
 case .call(let name, let args):
     // Ask the module for a function with the same name.
     // If there wasn't one, then throw an error.
-    guard let prototype = topLevel.prototype(named: name) else {
+    guard let prototype = file.prototype(named: name) else {
         throw IRError.unknownFunction(name)
     }
     // Now make sure the call has the same number of arguments as the
@@ -410,7 +400,7 @@ of a function while we're emitting its expression. Let's add a new
 property to `IRGenerator`:
 
 ```swift
-private var varBindings = [String: IRValue]()
+private var parameterValues = [String: IRValue]()
 ```
 
 We'll populate this array later, once we're emitting code for functions. For
@@ -427,7 +417,7 @@ Now we can emit the code for `.variable` declarations.
 
 ```swift
 case .variable(let name):
-    guard let param = varBindings[name] else {
+    guard let param = parameterValues[name] else {
         throw IRError.unknownVariable(name)
     }
     return param
@@ -435,6 +425,70 @@ case .variable(let name):
 
 Great! That was easy. If we didn't find the binding, then throw an
 error. Otherwise, return it.
+
+Next we'll handle `.ifelse` expressions. These are interesting in that one of
+the cases of the if expression won't be executed. This means that we'll need
+to make some more `BasicBlock`s and jump to a specific one if the condition
+is true. Fortunately, LLVM's `br` instruction allows for a condition.
+
+So we'll make a basic block for the true case, a basic block for the false case,
+and then a `merge` basic block that they'll both jump to once they're done.
+
+In the `merge` block, we'll use what's called a `PHI` node in LLVM. A `PHI` node
+is a special instruction that changes its value based on where we *came from*.
+
+So consider this `PHI` node:
+
+```
+%3 = phi double [ %1, %then ],
+                [ %2, %else ]
+```
+
+You can read this as "if we just came from the block `%then`, then it'll have
+the value in `%1`. If you came from the block `%else`, then it'll have the value
+%2".
+
+We'll make a phi node to combine the values from the two new blocks we'll create,
+like so:
+
+```swift
+case .ifelse(let cond, let thenExpr, let elseExpr):
+  // Create a `not-equal` comparison
+  let checkCond = builder.buildFCmp(try emitExpr(cond),
+                                    FloatType.double.constant(0.0),
+                                    .orderedNotEqual)
+
+  // Create a basic block to execute in the true or false cases,
+  // and a block to jump to after.
+  let thenBB = builder.currentFunction!.appendBasicBlock(named: "then")
+  let elseBB = builder.currentFunction!.appendBasicBlock(named: "else")
+  let mergeBB = builder.currentFunction!.appendBasicBlock(named: "merge")
+
+  // Create a conditional branch instruction that will branch to the
+  // `then` block if the condition is true, and the `else` block if false.
+  builder.buildCondBr(condition: checkCond, then: thenBB, else: elseBB)
+
+  // Position the builder at the end of the `then` block and emit the expressions
+  builder.positionAtEnd(of: thenBB)
+  let thenVal = try emitExpr(thenExpr)
+  builder.buildBr(mergeBB)
+
+  // Do the same for the else block
+  builder.positionAtEnd(of: elseBB)
+  let elseVal = try emitExpr(elseExpr)
+  builder.buildBr(mergeBB)
+
+  // Move to the merge block
+  builder.positionAtEnd(of: mergeBB)
+
+  // Make a phi node of type double
+  let phi = builder.buildPhi(FloatType.double)
+
+  // Add the two incoming blocks to the phi node.
+  phi.addIncoming([(thenVal, thenBB), (elseVal, elseBB)])
+
+  return phi
+```
 
 The last expression type, `.binary`, is straightforward. Emit the code for
 the left-hand side, then the right-hand side. Once we do that, emit the
@@ -455,8 +509,9 @@ case let .binary(lhs, op, rhs):
         return builder.buildMul(lhsVal, rhsVal)
     case .mod:
         return builder.buildRem(lhsVal, rhsVal)
-    }
 ```
+
+Now the last binary operator: equals.
 
 And we're done with `emitExpr()`!
 
@@ -464,67 +519,97 @@ And we're done with `emitExpr()`!
 
 Now the last piece of the puzzle: Function definitions. Recall that a function
 is comprised of a prototype and a single expression for the body. We're going
-to need to do one special thing: populate the `varBindings` with the parameters
-of this function.
-
-But wait, you may ask, what happens when we're done with the function? Won't the
-variable bindings stay left over in the dictionary?
-
-Well, we'll want a way to restore the old bindings once we've finished a scope.
-With that in mind, let's write a small abstraction that keeps track of bindings
-and restores them after we're done doing some work:
-
-```swift
-func withScope(_ block: () throws -> Void) rethrows {
-    let oldBindings = varBindings
-    try block()
-    varBindings = oldBindings
-}
-```
-
-Now we can call this function with a closure that will restore the old bindings
-once we're done emitting the code for a function.
-
-So now we can proceed with emitting the code for a function definition:
+to need to do one special thing: populate the `parameterValues` with the parameters
+of this function: when we begin working with the function, register the parameters
+with the `parameterValues`. When you're done, remove them all!
 
 ```swift
 @discardableResult
 func emitDefinition(_ definition: Definition) throws -> Function {
-    // Emit the prototype for the function
-    let function = emitPrototype(definition.prototype)
+  // Lazily emit the function prototype
+  let function = emitPrototype(definition.prototype)
 
-    // Within a scope...
-    try withScope {
-        // Register the parameters with the variable bindings
-        for (idx, arg) in definition.prototype.params.enumerated() {
-            let param = function.parameter(at: idx)!
-            varBindings[arg] = param
-        }
+  // Register each of the parameters' underlying LLVM values
+  for (idx, arg) in definition.prototype.params.enumerated() {
+    let param = function.parameter(at: idx)!
+    parameterValues[arg] = param
+  }
 
-        // Create the entry basic block
-        builder.positionAtEnd(of: function.appendBasicBlock(named: "entry"))
+  // Create the entry basic block
+  let entryBlock = function.appendBasicBlock(named: "entry")
+  builder.positionAtEnd(of: entryBlock)
 
-        // Emit the single subexpression and return it
-        builder.buildRet(try emitExpr(definition.expr))
-    }
-    return function
+  // Emit the underlying expression
+  let expr = try emitExpr(definition.expr)
+
+  // Build a return of the expression
+  builder.buildRet(expr)
+
+  // Now remove the parameter values.
+  parameterValues.removeAll()
+
+  return function
 }
 ```
 
 ### Wrapping It All Together
 
+A binary file isn't actually executable unless we have a `main` function.
+Our main function will just execute each file-level expression and print its
+value. To do that, we'll loop through all the expressions and make a call to
+`printf` with the format string `"%f\n"`.
+
+```swift
+func emitPrintf() -> Function {
+  if let function = module.function(named: "printf") { return function }
+
+    // Printf's C type is `int printf(char *, ...)`
+  let printfType = FunctionType(argTypes: [PointerType(pointee: IntType.int8)],
+                                returnType: IntType.int32,
+                                isVarArg: true)
+
+  // Add a declaration of printf
+  return builder.addFunction("printf", type: printfType)
+}
+
+func emitMain() throws {
+  // Our main function will take no arguments and return void.
+  let mainType = FunctionType(argTypes: [], returnType: VoidType())
+  let function = builder.addFunction("main", type: mainType)
+
+  // Make an entry block
+  let entry = function.appendBasicBlock(named: "entry")
+  builder.positionAtEnd(of: entry)
+
+  // Make a global string containing the format string
+  let formatString = builder.buildGlobalStringPtr("%f\n")
+  let printf = emitPrintf()
+
+  // Emit each expression along with a call to printf with that
+  // format string.
+  for expr in file.expressions {
+    let val = try emitExpr(expr)
+    builder.buildCall(printf, args: [formatString, val])
+  }
+
+  // Return void
+  builder.buildRetVoid()
+}
+```
+
 The last thing we need is have one more function to emit everything declared
-at top level. Let's make a function that just emits all `extern` definitions and
-all function definitions:
+at file level. Let's make a function that just emits all `extern` definitions,
+function definitions, and the main function:
 
 ```swift
 func emit() throws {
-    for extern in topLevel.externs {
-        emitPrototype(extern)
-    }
-    for definition in topLevel.definitions {
-        try emitDefinition(definition)
-    }
+  for extern in file.externs {
+    emitPrototype(extern)
+  }
+  for definition in file.definitions {
+    try emitDefinition(definition)
+  }
+  try emitMain()
 }
 ```
 
@@ -545,8 +630,8 @@ do {
     let file = try String(contentsOfFile: CommandLine.arguments[1])
     let lexer = Lexer(input: file)
     let parser = Parser(tokens: lexer.lex())
-    let topLevel = try parser.parseTopLevel()
-    let irGen = IRGenerator(topLevel: topLevel)
+    let file = try parser.parseFile()
+    let irGen = IRGenerator(file: file)
     try irGen.emit()
     irGen.module.dump()
     try irGen.module.verify()

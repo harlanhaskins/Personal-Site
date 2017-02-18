@@ -94,6 +94,7 @@ You have:
 - Variables
 - Binary operators, which have two subexpressions and an operator
 - Function Calls, which have a name and an array of expressions.
+- If-else expressions, which behave like ternary expressions in Swift
 
 Because there is a small set of cases, we can represent the expressions with
 another Swift enum:
@@ -104,6 +105,7 @@ indirect enum Expr {
     case variable(String)
     case binary(Expr, BinaryOperator, Expr)
     case call(String, [Expr])
+    case ifelse(Expr, Expr, Expr)
 }
 ```
 
@@ -117,10 +119,11 @@ Form](https://en.wikipedia.org/wiki/Backus–Naur_form):
 <definition> ::= "def" <prototype> <expr> ";"
 <extern>     ::= "extern" <prototype> ";"
 <operator>   ::= "+" | "-" | "*" | "/" | "%"
-<expr>       ::= <binary> | <call> | <identifier> | <number>
+<expr>       ::= <binary> | <call> | <identifier> | <number> | <ifelse>
                | "(" <expr> ")"
 <binary>     ::= <expr> <operator> <expr>
 <call>       ::= <identifier> "(" <arguments> ")"
+<ifelse>     ::= "if" <expr> "then" <expr> "else" <expr>
 <arguments>  ::= <expr>
                | <expr> "," <arguments>
 ```
@@ -163,8 +166,8 @@ var currentToken: Token? {
     return index < tokens.count ? tokens[index] : nil
 }
 
-func advance(n: Int = 1) {
-    index += n
+func advance() {
+    index += 1
 }
 
 /// Eats the specified token if it's the currentToken,
@@ -287,6 +290,9 @@ It'll look like this:
     - If after that we see a left paren, then we can parse the arguments to
       a function call and make a `.call` expression
     - Otherwise, make a `.variable` expression.
+- If we see the `.if` token, then we eat it, parse the condition expression,
+  eat the `.then`, parse the then expression, eat the `.else`, and parse the
+  else expression.
 - If we see any other token, throw an error.
 
 We keep track of this expression, then check for an operator token.
@@ -320,32 +326,32 @@ func parseDefinition() throws -> Definition {
 ### All Together Now
 
 Now that we have parsers for each of the terms in the language, we can make a
-struct that holds all the top-level declarations in the program. The only
-top-level declarations we support right now are extern declarations and
-function definitions.
+struct that holds all the file-level declarations in the program. These can be
+function definitions, extern declarations, or expressions.
 
 We just switch over the current token until we have no more tokens left.
 If the code was malformed during the parsing, it will throw an error
 and we will bubble it up to the caller.
 
 If the code was correct, then we just read until there are no more tokens and
-return a `TopLevel` struct with the top-level definitions.
+return a `File` class with the file-level definitions.
 
 ```swift
-func parseTopLevel() throws -> TopLevel {
-    var externs = [Prototype]()
-    var definitions = [Definition]()
+func parseFile() throws -> File {
+    let file = File()
     while let tok = currentToken {
         switch tok {
         case .extern:
-            externs.append(try parseExtern())
+            file.addExtern(try parseExtern())
         case .def:
-            definitions.append(try parseDefinition())
+            file.addDefinition(try parseDefinition())
         default:
-            throw ParseError.unexpectedToken(tok)
+            let expr = try parseExpr()
+            try consume(.semicolon)
+            file.addExpression(expr)
         }
     }
-    return TopLevel(externs: externs, definitions: definitions)
+    return file
 }
 ```
 

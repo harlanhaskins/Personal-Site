@@ -84,7 +84,7 @@ should look something like this:
 
 ```swift
 enum Token {
-    case leftParen, rightParen, def, extern, comma, .semicolon
+    case leftParen, rightParen, def, extern, comma, semicolon, `if`, then, `else`
     case identifier(String)
     case number(Double)
     case `operator`(BinaryOperator)
@@ -94,7 +94,7 @@ enum Token {
 That `BinaryOperator` there corresponds to this simple enum:
 
 ```swift
-enum BinaryOperator: UnicodeScalar {
+enum BinaryOperator: Character {
     case plus = "+"
     case minus = "-"
     case times = "*"
@@ -106,18 +106,17 @@ enum BinaryOperator: UnicodeScalar {
 Once we define this, we can write a small Lexer that will deconstruct the source
 text into a list of these tokens, while ignoring whitespace.
 
-First, we want to define a class called `Lexer` that holds an array of
-`UnicodeScalar`s. I usually prefer using `UnicodeScalar`s when I'm not
-concerned with Unicode correctness. This language will be ASCII-only, so we're
-safe using UnicodeScalar.
+First, we want to define a class called `Lexer` that holds a reference to a
+`String`.
 
 ```swift
 class Lexer {
-    let input: [UnicodeScalar]
-    var index = 0
+    let input: String
+    var index: String.Index
 
     init(input: String) {
-        self.input = Array(input.unicodeScalars)
+        self.input = input
+        self.index = input.startIndex
     }
 }
 ```
@@ -132,7 +131,7 @@ this, in order:
     - If it is, then return that token.
 - Otherwise, read an identifier.
     - If that identifier is an integer or decimal number, then return the number token.
-    - Check if it's one of the two word tokens, `def` or `extern`.
+    - Check if it's one of the keyword tokens, `def`, `extern`, `if`, `then`, and `else`.
         - If it is, return it.
     - Return a generic identifier token.
 
