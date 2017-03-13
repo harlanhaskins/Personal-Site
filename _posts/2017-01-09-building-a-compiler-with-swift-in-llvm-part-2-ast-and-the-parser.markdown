@@ -116,6 +116,8 @@ Form](https://en.wikipedia.org/wiki/Backus–Naur_form):
 
 ```
 <prototype>  ::= <identifier> "(" <params> ")"
+<params>     ::= <identifier>
+               | <identifier>, <params>
 <definition> ::= "def" <prototype> <expr> ";"
 <extern>     ::= "extern" <prototype> ";"
 <operator>   ::= "+" | "-" | "*" | "/" | "%"
