@@ -13,7 +13,7 @@ redcarpet:
 highlighter: rouge
 logo: 'https://0.gravatar.com/avatar/9d670e1bacb9419d68fbb5245e4ecef5?s=300'
 paginate: 3
-gems: ['jekyll-paginate']
+plugins: ['jekyll-paginate']
 
 author:
   name: 'Harlan Haskins'
