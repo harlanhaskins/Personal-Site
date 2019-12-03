@@ -5,8 +5,12 @@ title: About Me
 
 Hi, I'm Harlan Haskins, and I'm a software Engineer in Mountain View, CA.
 
-I attend [RIT](http://www.rit.edu), where I'm pursuing a Bachelor's 
-degree in Computer Science. I'm a member of
+I currently work on Augmented Reality at Apple, and I previously worked on
+the Swift compiler team and the HomeKit team.
+
+I graduated from [RIT](http://www.rit.edu) in 2018 with a Bachelor's 
+degree in Computer Science and a focus on languages and developer
+tooling. I'm a member of
 [Computer Science House](http://csh.rit.edu).
 
 You can find me on [Twitter](http://twitter.com/harlanhaskins) and on 
