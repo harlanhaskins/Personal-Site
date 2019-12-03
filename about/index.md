@@ -3,7 +3,7 @@ layout: page
 title: About Me
 ---
 
-Hi, I'm Harlan Haskins, and I'm a software Engineer in Rochester, NY.
+Hi, I'm Harlan Haskins, and I'm a software Engineer in Mountain View, CA.
 
 I attend [RIT](http://www.rit.edu), where I'm pursuing a Bachelor's 
 degree in Computer Science. I'm a member of

@@ -1,14 +1,9 @@
 name: 'Harlan Haskins'
 description: 'Software Engineer'
-meta_description: 'Software Engineer in Rochester, New York'
+meta_description: 'Software Engineer in Mountain View, California'
 baseurl: ''
 
 timezone: America/New_York
-
-markdown: redcarpet
-
-redcarpet:
-  extensions: ["footnotes", "strikethrough", "tables"]
 
 highlighter: rouge
 logo: 'https://0.gravatar.com/avatar/9d670e1bacb9419d68fbb5245e4ecef5?s=300'
@@ -18,9 +13,9 @@ plugins: ['jekyll-paginate']
 author:
   name: 'Harlan Haskins'
   website: 'https://harlanhaskins.com'
-  bio: 'Harlan is a software engineer in Rochester, New York.'
+  bio: 'Harlan is a software engineer in Mountain View, California.'
   image: 'https://0.gravatar.com/avatar/9d670e1bacb9419d68fbb5245e4ecef5?s=300'
-  location: 'Rochester, New York'
+  location: 'Mountain View, California'
 
 # Details for the RSS feed generator
 url: 'https://harlanhaskins.com'

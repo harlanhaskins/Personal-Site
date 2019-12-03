@@ -2,3 +2,4 @@ _site*
 .DS_Store
 *.pyc
 _drafts
+.jekyll-cache/

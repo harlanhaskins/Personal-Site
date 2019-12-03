@@ -10,4 +10,8 @@ Location: Columbus, OH
 Thanks to:
 Mihir Singh
 https://citruspi.io
+<<<<<<< HEAD
 Location: Rochester, NY
+=======
+Location: Mountain View, CA
+>>>>>>> Initial commit
