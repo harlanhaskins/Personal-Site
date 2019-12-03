@@ -21,4 +21,4 @@ author:
 url: 'https://harlanhaskins.com'
 
 # Exlcusion
-exclude: [fabfile.py, fabfile.pyc, _site.zip]
+exclude: [_site.zip]
