@@ -3,7 +3,7 @@ layout: page
 title: About Me
 ---
 
-Hi, I'm Harlan Haskins, and I'm a software Engineer in Mountain View, CA.
+Hi, I'm Harlan Haskins, and I'm a Software Engineer in Mountain View, CA.
 
 I currently work on Augmented Reality at Apple, and I previously worked on
 the Swift compiler team and the HomeKit team.
