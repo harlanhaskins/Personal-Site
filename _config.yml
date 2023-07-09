@@ -1,21 +1,22 @@
 name: 'Harlan Haskins'
 description: 'Software Engineer'
-meta_description: 'Software Engineer in Mountain View, California'
+meta_description: 'Software Engineer in Boulder, Colorado'
 baseurl: ''
 
-timezone: America/New_York
+timezone: America/Denver
 
 highlighter: rouge
 logo: 'https://0.gravatar.com/avatar/9d670e1bacb9419d68fbb5245e4ecef5?s=300'
 paginate: 3
 plugins: ['jekyll-paginate']
+paginate_path: "/blog/page:num/"
 
 author:
   name: 'Harlan Haskins'
   website: 'https://harlanhaskins.com'
-  bio: 'Harlan is a software engineer in Mountain View, California.'
+  bio: 'Harlan is a software engineer in Bouler, Colorado.'
   image: 'https://0.gravatar.com/avatar/9d670e1bacb9419d68fbb5245e4ecef5?s=300'
-  location: 'Mountain View, California'
+  location: 'Boulder, Colorado'
 
 # Details for the RSS feed generator
 url: 'https://harlanhaskins.com'
