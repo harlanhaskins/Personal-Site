@@ -2,7 +2,6 @@
 layout: default
 title: Home
 cover: false
-about: '/about/'
 ---
 
 <header id="site-head">
@@ -10,21 +9,5 @@ about: '/about/'
 </header>
 
 <main class="content" role="main">
-
-  {% for post in paginator.posts %}
-    <article class="preview">
-       <header>
-         <h1 class="post-title"><a href="{{ site.baseurl}}{{ post.url }}">{{ post.title }}</a></h1>
-         <div class="post-meta"><time datetime="{{ post.date | date: "%d %B, %Y" }}">{{ post.date | date: "%d %B, %Y" }}</time></div>
-       </header>
-       <section class="post-excerpt">
-           <p>{{ post.excerpt }}</p>
-           <p class="readmore"><a href="{{ site.baseurl}}{{ post.url }}">Read this article <i class="fa fa-chevron-circle-right"></i></a></p>
-       </section>
-    </article>
-	 
-  {% endfor %}
-	 
-  {% include pagination.html %}
-	 
+  {% include about.md %}
 </main>
