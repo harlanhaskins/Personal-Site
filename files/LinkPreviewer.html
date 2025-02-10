@@ -40,7 +40,20 @@
       var card = document.createElement("div");
       card.className = "card m-1";
       card.style = "width: 20rem";
-      if (json.image) {
+
+      var isVideo = false;
+
+      if (json.video) {
+        var video = document.createElement("video");
+        video.className = "card-img-top";
+        video.src = json.video.url;
+        video.setAttribute("controls", "");
+        if (json.image) {
+          video.poster = json.image.url;
+        }
+        isVideo = true;
+        card.appendChild(video);
+      } else if (json.image) {
         var image = document.createElement("img");
         image.className = "card-img-top";
         image.src = json.image.url;
@@ -49,26 +62,45 @@
 
       var link = document.createElement("a");
       link.className = "stretched-link";
-      link.style = "width:100%;height:100%;display:block";
       link.href = json.canonicalURL || url;
-      card.appendChild(link);
 
       var cardBody = document.createElement("div");
-      cardBody.className = "card-body";
-      card.appendChild(cardBody);
+      cardBody.className = "card-body position-relative";
+
+      if (isVideo) {
+        cardBody.appendChild(link);
+      } else {
+        card.appendChild(link);
+      }
+
+      var titleSection = document.createElement("div");
+      titleSection.className = "mx-2 mt-2";
+      if (json.faviconURL) {
+        var favicon = document.createElement("img");
+        favicon.src = json.faviconURL;
+        favicon.width = 24;
+        favicon.height = 24;
+        favicon.className = "m-1";
+        favicon.style = "display: inline; vertical-align: middle;";
+        titleSection.appendChild(favicon);
+      }
 
       if (json.title) {
         var title = document.createElement("h5");
-        title.className = "card-title";
+        title.style = "display: inline; vertical-align: middle;";
         title.textContent = json.title;
-        cardBody.appendChild(title);
+        titleSection.appendChild(title);
       }
+      card.appendChild(titleSection);
+
       if (json.description || json.siteName) {
         var description = document.createElement("p");
         description.className = "card-text";
         description.textContent = json.description || json.siteName;
         cardBody.appendChild(description);
       }
+
+      card.appendChild(cardBody);
       return card;
     }
 
