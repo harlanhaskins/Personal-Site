@@ -15,6 +15,6 @@ degree in Computer Science and a focus on languages and developer
 tooling. I'm a member of
 [Computer Science House](http://csh.rit.edu).
 
-You can find me on [Bluesky](profile/harlanhaskins.com) and on 
+You can find me on [Bluesky](https://bsky.app/profile/harlanhaskins.com) and on 
 [GitHub](https://github.com/harlanhaskins). My resume is available 
 [here.]({{ site.baseurl }}/files/Resume.pdf)
